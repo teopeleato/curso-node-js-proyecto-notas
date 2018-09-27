@@ -4,7 +4,7 @@
   "description": "Proyecto para prácticar con objetos json y persistencia en disco mediante ficheros",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
