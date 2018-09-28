@@ -1,25 +1,24 @@
 console.log('iniciando aplicacion de notas')
 const notes = require('./notes.js')
 const { argv } = require('yargs')
-
-console.log(argv)
+// console.log('Yargs', argv)
 
 const comando = argv._[0]
-
-// const param = process.argv[2]
+const title = argv.title
+const body = argv.body
 
 switch (comando) {
   case 'addNote':
-    notes.addNote(argv.title, argv.body)
+    notes.addNote(title, body)
     break
   case 'removeNote':
-    console.log('Eliminando una nota...')
+    notes.removeNote(title)
     break
   case 'readNote':
-    console.log('Leyendo una nota...')
+    notes.readNote(title)
     break
   case 'listNotes':
-    console.log('Listando notas...')
+    notes.listNotes()
     break
   default:
     console.log('Comando desconocido')

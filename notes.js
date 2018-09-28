@@ -3,18 +3,14 @@ console.log('Modulo de notas cargado')
 const addNote = (title, body) => {
   console.log('Nota añadida: ', title, body)
 }
-
-const removeNote = (idNota) => {
-  console.log(`Nota ${idNota} eliminadas`)
-  return 'Nota borrada'
+const removeNote = (title) => {
+  console.log(`Nota ${title} eliminada`)
 }
-
-const readNote = (idNota) => {
-  return 'Nota leida'
+const readNote = (title) => {
+  console.log(`Nota ${title} leída`)
 }
-
 const listNotes = () => {
-  return 'Listar'
+  console.log('Listado de todas las notas')
 }
 
 module.exports = {
