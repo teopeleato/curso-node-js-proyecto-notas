@@ -40,7 +40,6 @@ const readNote = (title) => {
 
 let getAll = () => {
   return fetchNotes()
-}
 
 module.exports = {
   addNote,

@@ -16,12 +16,22 @@ switch (comando) {
     } else {
       console.log('Ya existe una nota con este título')
     }
+// console.log('Yargs', argv)
+
+const comando = argv._[0]
+const title = argv.title
+const body = argv.body
+
+switch (comando) {
+  case 'addNote':
+    notes.addNote(title, body)
     break
 
   case 'removeNote':
     const noteRemoved = notes.removeNote(argv.title)
     const message = noteRemoved ? `Nota ${argv.title} eliminada` : 'Nota no encontrada'
     console.log(message)
+    notes.removeNote(title)
     break
 
   case 'readNote':
@@ -31,12 +41,14 @@ switch (comando) {
     } else {
       console.log('No existe una nota con este título')
     }
+    notes.readNote(title)
     break
 
   case 'listNotes':
     const allNotes = notes.getAll()
     console.log(`Mostrando ${allNotes.length} notas.`)
     allNotes.forEach((note) => logNote(note))
+    notes.listNotes()
     break
 
   default:
