@@ -6,36 +6,29 @@ const { logNote } = require('./utils')
 console.log(argv)
 
 const comando = argv._[0]
+const title = argv.title
+const body = argv.body
 
 switch (comando) {
   case 'addNote':
-    const note = notes.addNote(argv.title, argv.body)
+    const note = notes.addNote(title, body)
     if (note) {
       console.log('Nota creada')
       logNote(note)
     } else {
       console.log('Ya existe una nota con este título')
     }
-// console.log('Yargs', argv)
-
-const comando = argv._[0]
-const title = argv.title
-const body = argv.body
-
-switch (comando) {
-  case 'addNote':
-    notes.addNote(title, body)
     break
 
   case 'removeNote':
-    const noteRemoved = notes.removeNote(argv.title)
-    const message = noteRemoved ? `Nota ${argv.title} eliminada` : 'Nota no encontrada'
+    const noteRemoved = notes.removeNote(title)
+    const message = noteRemoved ? `Nota ${title} eliminada` : 'Nota no encontrada'
     console.log(message)
     notes.removeNote(title)
     break
 
   case 'readNote':
-    const noteRead = notes.readNote(argv.title)
+    const noteRead = notes.readNote(title)
     if (noteRead) {
       logNote(noteRead)
     } else {
@@ -48,7 +41,6 @@ switch (comando) {
     const allNotes = notes.getAll()
     console.log(`Mostrando ${allNotes.length} notas.`)
     allNotes.forEach((note) => logNote(note))
-    notes.listNotes()
     break
 
   default:

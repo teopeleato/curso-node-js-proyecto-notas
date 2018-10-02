@@ -3,14 +3,11 @@ const { saveNotes, fetchNotes } = require('./utils')
 
 const addNote = (title, body) => {
   const notes = fetchNotes()
-
   const note = {
     title,
     body
   }
-
   const duplicateNotes = notes.filter(note => note.title === title) // Como: if notes.title === title (dentro de un for)
-
   if (duplicateNotes.length === 0) {
     notes.push(note)
     saveNotes(notes)
@@ -38,8 +35,9 @@ const readNote = (title) => {
   return readNote[0]
 }
 
-let getAll = () => {
+const getAll = () => {
   return fetchNotes()
+}
 
 module.exports = {
   addNote,
